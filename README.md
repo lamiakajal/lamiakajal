@@ -41,4 +41,11 @@
 <a href="https://www.pinterest.com/lamiakajal"><img src="assets/social-pinterest.svg" alt="Pinterest" width="32%" /></a>
 </p>
 
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake-dark.svg" width="100%" />
+</picture>
+
 </div>
