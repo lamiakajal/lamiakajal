@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="72" viewBox="0 0 1000 72" role="img" aria-label="Skills"><title>Skills</title><style>
+text{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;white-space:pre}
+.k{font-size:17px;font-weight:bold}.v{font-size:17px;fill:#e6edf3}.h{font-size:17px;font-weight:bold}
+.a{font-size:5.6px}.a2{font-size:5.2px}.b{font-size:17px}.ty{font-size:24px;font-weight:bold}
+.m{font-size:17px;font-weight:bold}.abt{font-size:22px;font-weight:bold}.n{font-size:17px;font-weight:bold}
+.fi{animation:fi 12s infinite both}
+@keyframes fi{0%{opacity:0}4%{opacity:1}88%{opacity:1}95%,100%{opacity:0}}
+.pl{animation:pl 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pl{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.loop{animation:loop 18s infinite}
+.pulse{animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{transform:scale(.95)}50%{transform:scale(1.05)}}
+@keyframes loop{0%,94%{opacity:1}98%,99.9%{opacity:0}100%{opacity:1}}
+</style><defs><linearGradient id="rb" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="0" spreadMethod="repeat"><stop offset="0" stop-color="#ff5f6d"/><stop offset=".2" stop-color="#ffc371"/><stop offset=".4" stop-color="#7ee787"/><stop offset=".6" stop-color="#58a6ff"/><stop offset=".8" stop-color="#bc8cff"/><stop offset="1" stop-color="#ff5f6d"/><animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1000 0" dur="7s" repeatCount="indefinite"/></linearGradient><linearGradient id="bd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58a6ff"/><stop offset=".5" stop-color="#bc8cff"/><stop offset="1" stop-color="#ff7bb0"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#58a6ff"/><stop offset=".5" stop-color="#bc8cff"/><stop offset="1" stop-color="#ff7bb0"/></linearGradient><clipPath id="hc"><rect x="456.8" y="22" height="34" width="86.4"><animate attributeName="width" values="0.0;14.4;28.8;43.2;57.6;72.0;86.4" keyTimes="0.0000;0.0167;0.0333;0.0500;0.0667;0.0833;0.1000" calcMode="discrete" dur="6.0s" repeatCount="indefinite"/></rect></clipPath></defs><rect x=".5" y=".5" width="999" height="71" rx="12" fill="#0d1117" stroke="url(#bd)" stroke-width="1.5"/><text class="ty" fill="url(#rb)" x="456.8" y="46.0" textLength="86.4" lengthAdjust="spacing" clip-path="url(#hc)">Skills</text><rect y="25" width="3" height="24" fill="#7ee787" opacity="0" x="456.8"><animate attributeName="x" values="456.8;471.2;485.6;500.0;514.4;528.8;543.2" keyTimes="0.0000;0.0167;0.0333;0.0500;0.0667;0.0833;0.1000" calcMode="discrete" dur="6.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect></svg>
