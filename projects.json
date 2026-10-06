@@ -1,0 +1,21 @@
+{
+  "overrides": {
+    "E-School": {
+      "description": "E-School - a fully responsive landing page project.",
+      "tech": ["HTML", "Responsive", "Landing Page"]
+    },
+    "Minimo": {
+      "description": "Minimo - a fully responsive landing page project.",
+      "tech": ["HTML", "Responsive", "Landing Page"]
+    },
+    "Quick": {
+      "description": "Quick - a fully responsive landing page project.",
+      "tech": ["HTML", "Responsive", "Landing Page"]
+    },
+    "Tinyone": {
+      "description": "Tinyone - a fully responsive landing page project.",
+      "tech": ["HTML", "Responsive", "Landing Page"]
+    }
+  },
+  "extra": []
+}
