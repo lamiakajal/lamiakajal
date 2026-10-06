@@ -1,13 +1,17 @@
 name: Generate Snake
+
 on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - main
+
+concurrency:
+  group: snake
+  cancel-in-progress: true
+
 permissions:
   contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -17,8 +21,9 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake.svg?color_snake=#8a5cf6&color_dots=#ebedf0,#39d0d8,#4cc38a,#f5a623,#ff5f6d
+            dist/github-snake-dark.svg?color_snake=#bc8cff&color_dots=#161b22,#39d0d8,#7ee787,#ffc371,#ff5f6d
+
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
