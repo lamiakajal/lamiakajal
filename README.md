@@ -23,8 +23,11 @@
 <a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
+<img src="ui-v3/picture.svg" alt="Lamia Kajal" width="100%" />
+
 <img src="ui-v3/heading-featured.svg" alt="Featured Projects" width="100%" />
 
+<!-- PROJECTS:START -->
 <p align="center">
 <a href="https://github.com/lamiakajal/DevStack"><img src="ui-v3/project-devstack.svg" alt="DevStack" width="48%" /></a>
 <a href="https://github.com/lamiakajal/E-School"><img src="ui-v3/project-e-school.svg" alt="E-School" width="48%" /></a>
@@ -32,8 +35,7 @@
 <a href="https://github.com/lamiakajal/Quick"><img src="ui-v3/project-quick.svg" alt="Quick" width="48%" /></a>
 <a href="https://github.com/lamiakajal/Tinyone"><img src="ui-v3/project-tinyone.svg" alt="Tinyone" width="48%" /></a>
 </p>
-
-<img src="ui-v3/picture.svg" alt="Lamia Kajal" width="100%" />
+<!-- PROJECTS:END -->
 
 <img src="ui-v3/heading-social.svg" alt="Find Me Online" width="100%" />
 
@@ -64,14 +66,12 @@
 
 <img src="stats/github-languages.svg" alt="Top languages" width="100%" />
 
+<img src="ui-v3/heading-snake.svg" alt="Contribution Snake" width="100%" />
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake.svg" />
   <img alt="Contribution snake" src="https://raw.githubusercontent.com/lamiakajal/lamiakajal/output/github-snake-dark.svg" width="100%" />
 </picture>
-
-<p align="center">
-<img src="https://komarev.com/ghpvc/?username=lamiakajal&label=Profile+Views&color=00c2ff&style=for-the-badge" alt="Profile views" />
-</p>
 
 </div>
