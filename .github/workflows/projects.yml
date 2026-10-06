@@ -1,0 +1,45 @@
+name: Update Featured Projects
+
+on:
+  schedule:
+    - cron: "45 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "projects.json"
+      - ".github/scripts/generate_projects.py"
+      - ".github/workflows/projects.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: projects
+  cancel-in-progress: true
+
+jobs:
+  projects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate project cards from pinned repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+        run: python .github/scripts/generate_projects.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md ui-v3
+          git diff --cached --quiet || git commit -m "chore: update featured project cards"
+          git push
