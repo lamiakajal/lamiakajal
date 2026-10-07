@@ -29,11 +29,9 @@
 
 <!-- PROJECTS:START -->
 <p align="center">
-<a href="https://github.com/lamiakajal/DevStack"><img src="ui-v3/project-devstack.svg" alt="DevStack" width="48%" /></a>
-<a href="https://github.com/lamiakajal/E-School"><img src="ui-v3/project-e-school.svg" alt="E-School" width="48%" /></a>
-<a href="https://github.com/lamiakajal/Minimo"><img src="ui-v3/project-minimo.svg" alt="Minimo" width="48%" /></a>
-<a href="https://github.com/lamiakajal/Quick"><img src="ui-v3/project-quick.svg" alt="Quick" width="48%" /></a>
-<a href="https://github.com/lamiakajal/Tinyone"><img src="ui-v3/project-tinyone.svg" alt="Tinyone" width="48%" /></a>
+<a href="https://axit-landing-page-iota.vercel.app"><img src="ui-v3/project-axit-landing-page.svg" alt="axit-landing-page" width="48%" /></a>
+<a href="https://lucid-lamiakajal.vercel.app"><img src="ui-v3/project-lucid-landing-page.svg" alt="lucid-landing-page" width="48%" /></a>
+<a href="https://dev-stack-peach-chi.vercel.app"><img src="ui-v3/project-devstack.svg" alt="DevStack" width="48%" /></a>
 </p>
 <!-- PROJECTS:END -->
 
