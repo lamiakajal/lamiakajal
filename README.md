@@ -86,10 +86,10 @@
 
 <!-- BLOG:START -->
 <p align="center">
-<a href="https://lamiakajal.blogspot.com/2025/06/e-school-fully-responsive-user-friendly.html"><img src="ui-v3/blog-1.svg" alt="E-School - Fully Responsive & User-Friendly Landing Page" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/excited-to-launch-my-3rd-practice.html"><img src="ui-v3/blog-2.svg" alt="Excited to Launch My 3rd Practice Project - Tinyone" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-2nd-web-project.html"><img src="ui-v3/blog-3.svg" alt="I Just Completed My 2nd Web Project - Minimo" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-first-practice.html"><img src="ui-v3/blog-4.svg" alt="I Just Completed My First Practice Project" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/e-school-fully-responsive-user-friendly.html"><img src="ui-v3/blog-1.svg" alt="E-School — Fully Responsive &amp; User-Friendly Landing Page | Practice Project #4" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/excited-to-launch-my-3rd-practice.html"><img src="ui-v3/blog-2.svg" alt="Excited to Launch My 3rd Practice Project – “Tinyone”" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-2nd-web-project.html"><img src="ui-v3/blog-3.svg" alt="I Just Completed My 2nd Web Project – “Minimo” | A Fully Responsive Website with HTML &amp; CSS" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-first-practice.html"><img src="ui-v3/blog-4.svg" alt="I Just Completed My First Practice Project – And It’s Live!" width="48%" /></a>
 </p>
 <!-- BLOG:END -->
 
