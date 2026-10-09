@@ -5,6 +5,11 @@
       "tech": ["JavaScript", "Next.js", "Tailwind CSS"],
       "demo": "https://axit-lamiakajal.vercel.app/"
     },
+    "fit-log": {
+      "description": "FitLog - a workout library and daily lift tracker built with Next.js and Tailwind CSS.",
+      "tech": ["TypeScript", "Next.js", "Tailwind CSS"],
+      "demo": "https://fit-log-lamiakajal.vercel.app"
+    },
     "lucid-landing-page": {
       "tech": ["JavaScript", "Next.js", "Tailwind CSS"]
     }
