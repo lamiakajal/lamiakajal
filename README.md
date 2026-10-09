@@ -104,3 +104,12 @@
 </p>
 
 </div>
+
+
+
+
+
+
+
+---
+<sub>🔒 **© 2026 Lamia Kajal. All rights reserved.** Unauthorized copying, duplication, or design cloning is strictly prohibited.</sub>
