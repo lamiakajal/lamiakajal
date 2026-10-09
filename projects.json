@@ -1,20 +1,12 @@
 {
   "overrides": {
-    "E-School": {
-      "description": "E-School - a fully responsive landing page project.",
-      "tech": ["HTML", "Responsive", "Landing Page"]
+    "axit-landing-page": {
+      "description": "AXIT - a modern, responsive SaaS landing page built with Next.js and Tailwind CSS.",
+      "tech": ["JavaScript", "Next.js", "Tailwind CSS"],
+      "demo": "https://axit-lamiakajal.vercel.app/"
     },
-    "Minimo": {
-      "description": "Minimo - a fully responsive landing page project.",
-      "tech": ["HTML", "Responsive", "Landing Page"]
-    },
-    "Quick": {
-      "description": "Quick - a fully responsive landing page project.",
-      "tech": ["HTML", "Responsive", "Landing Page"]
-    },
-    "Tinyone": {
-      "description": "Tinyone - a fully responsive landing page project.",
-      "tech": ["HTML", "Responsive", "Landing Page"]
+    "lucid-landing-page": {
+      "tech": ["JavaScript", "Next.js", "Tailwind CSS"]
     }
   },
   "extra": []
