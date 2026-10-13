@@ -33,6 +33,7 @@
 <a href="https://fit-log-lamiakajal.vercel.app"><img src="ui-v3/project-fit-log.svg" alt="fit-log" width="48%" /></a>
 <a href="https://lucid-lamiakajal.vercel.app"><img src="ui-v3/project-lucid-landing-page.svg" alt="lucid-landing-page" width="48%" /></a>
 <a href="https://dev-stack-peach-chi.vercel.app"><img src="ui-v3/project-devstack.svg" alt="DevStack" width="48%" /></a>
+<a href="https://bazar-dor-lamiakajal.vercel.app"><img src="ui-v3/project-bazar-dor.svg" alt="bazar-dor" width="48%" /></a>
 </p>
 <!-- PROJECTS:END -->
 
