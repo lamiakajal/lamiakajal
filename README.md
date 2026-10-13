@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="ui-v3/header-v2.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
+<img src="ui-v3/header-v3.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
 
 <img src="ui-v3/heading-about.svg" alt="About Me" width="100%" />
 
@@ -23,7 +23,7 @@
 <a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
-<img src="ui-v3/picture-v2.svg" alt="Lamia Kajal" width="100%" />
+<img src="ui-v3/picture-v3.svg" alt="Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-featured.svg" alt="Featured Projects" width="100%" />
 
@@ -33,7 +33,6 @@
 <a href="https://fit-log-lamiakajal.vercel.app"><img src="ui-v3/project-fit-log.svg" alt="fit-log" width="48%" /></a>
 <a href="https://lucid-lamiakajal.vercel.app"><img src="ui-v3/project-lucid-landing-page.svg" alt="lucid-landing-page" width="48%" /></a>
 <a href="https://dev-stack-peach-chi.vercel.app"><img src="ui-v3/project-devstack.svg" alt="DevStack" width="48%" /></a>
-<a href="https://bazar-dor-lamiakajal.vercel.app"><img src="ui-v3/project-bazar-dor.svg" alt="bazar-dor" width="48%" /></a>
 </p>
 <!-- PROJECTS:END -->
 
@@ -59,12 +58,9 @@
 
 <img src="ui-v3/heading-stats.svg" alt="GitHub Stats" width="100%" />
 
-<p align="center">
-<img src="stats/github-stats.svg" alt="GitHub stats" width="49%" />
-<img src="stats/github-streak.svg" alt="Contribution streak" width="49%" />
-</p>
+<img src="stats/github-dashboard.svg" alt="GitHub stats dashboard" width="100%" />
 
-<img src="stats/github-languages.svg" alt="Top languages" width="100%" />
+<img src="stats/github-activity.svg" alt="Coding activity" width="100%" />
 
 <img src="ui-v3/heading-snake.svg" alt="Contribution Snake" width="100%" />
 
@@ -87,10 +83,10 @@
 
 <!-- BLOG:START -->
 <p align="center">
-<a href="https://lamiakajal.blogspot.com/2025/06/e-school-fully-responsive-user-friendly.html"><img src="ui-v3/blog-1.svg" alt="E-School — Fully Responsive &amp; User-Friendly Landing Page | Practice Project #4" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/excited-to-launch-my-3rd-practice.html"><img src="ui-v3/blog-2.svg" alt="Excited to Launch My 3rd Practice Project – “Tinyone”" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-2nd-web-project.html"><img src="ui-v3/blog-3.svg" alt="I Just Completed My 2nd Web Project – “Minimo” | A Fully Responsive Website with HTML &amp; CSS" width="48%" /></a>
-<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-first-practice.html"><img src="ui-v3/blog-4.svg" alt="I Just Completed My First Practice Project – And It’s Live!" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/e-school-fully-responsive-user-friendly.html"><img src="ui-v3/blog-1.svg" alt="E-School - Fully Responsive & User-Friendly Landing Page" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/excited-to-launch-my-3rd-practice.html"><img src="ui-v3/blog-2.svg" alt="Excited to Launch My 3rd Practice Project - Tinyone" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-2nd-web-project.html"><img src="ui-v3/blog-3.svg" alt="I Just Completed My 2nd Web Project - Minimo" width="48%" /></a>
+<a href="https://lamiakajal.blogspot.com/2025/06/i-just-completed-my-first-practice.html"><img src="ui-v3/blog-4.svg" alt="I Just Completed My First Practice Project" width="48%" /></a>
 </p>
 <!-- BLOG:END -->
 
@@ -104,13 +100,6 @@
 <a href="https://www.linkedin.com/in/lamiakajal"><img src="ui-v3/social-linkedin.svg" alt="LinkedIn" width="32%" /></a>
 </p>
 
+<img src="ui-v3/footer-waves.svg" alt="Thanks for visiting my profile" width="100%" />
+
 </div>
-
-
-
-
-
-
-
----
-<sub>🔒 **© 2026 Lamia Kajal. All rights reserved.** Unauthorized copying, duplication, or design cloning is strictly prohibited.</sub>
