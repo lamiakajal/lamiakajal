@@ -23,7 +23,7 @@
 <a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
-<img src="ui-v3/picture-v3.svg" alt="Lamia Kajal" width="100%" />
+<img src="ui-v3/picture-v2.svg" alt="Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-featured.svg" alt="Featured Projects" width="100%" />
 
