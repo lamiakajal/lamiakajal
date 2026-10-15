@@ -9,18 +9,18 @@
 <img src="ui-v3/heading-skills.svg" alt="Skills" width="100%" />
 
 <p align="center">
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="assets/skill-html.svg" alt="HTML" width="24%" /></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="assets/skill-css.svg" alt="CSS" width="24%" /></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="assets/skill-javascript.svg" alt="JavaScript" width="24%" /></a>
-<a href="https://www.typescriptlang.org/"><img src="assets/skill-typescript.svg" alt="TypeScript" width="24%" /></a>
-<a href="https://react.dev/"><img src="assets/skill-react.svg" alt="React" width="24%" /></a>
-<a href="https://tailwindcss.com/"><img src="assets/skill-tailwind.svg" alt="Tailwind CSS" width="24%" /></a>
-<a href="https://nextjs.org/"><img src="assets/skill-nextjs.svg" alt="Next.js" width="24%" /></a>
-<a href="https://www.better-auth.com/"><img src="assets/skill-betterauth.svg" alt="BetterAuth" width="24%" /></a>
-<a href="https://nodejs.org/"><img src="assets/skill-nodejs.svg" alt="Node.js" width="24%" /></a>
-<a href="https://www.mongodb.com/"><img src="assets/skill-mongodb.svg" alt="MongoDB" width="24%" /></a>
-<a href="https://mongoosejs.com/"><img src="assets/skill-mongoose.svg" alt="Mongoose" width="24%" /></a>
-<a href="https://git-scm.com/"><img src="assets/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="ui-v3/skill-html.svg" alt="HTML" width="24%" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="ui-v3/skill-css.svg" alt="CSS" width="24%" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="aui-v3/skill-javascript.svg" alt="JavaScript" width="24%" /></a>
+<a href="https://www.typescriptlang.org/"><img src="ui-v3/skill-typescript.svg" alt="TypeScript" width="24%" /></a>
+<a href="https://react.dev/"><img src="ui-v3/skill-react.svg" alt="React" width="24%" /></a>
+<a href="https://tailwindcss.com/"><img src="ui-v3/skill-tailwind.svg" alt="Tailwind CSS" width="24%" /></a>
+<a href="https://nextjs.org/"><img src="ui-v3/skill-nextjs.svg" alt="Next.js" width="24%" /></a>
+<a href="https://www.better-auth.com/"><img src="ui-v3/skill-betterauth.svg" alt="BetterAuth" width="24%" /></a>
+<a href="https://nodejs.org/"><img src="ui-v3/skill-nodejs.svg" alt="Node.js" width="24%" /></a>
+<a href="https://www.mongodb.com/"><img src="ui-v3/skill-mongodb.svg" alt="MongoDB" width="24%" /></a>
+<a href="https://mongoosejs.com/"><img src="ui-v3/skill-mongoose.svg" alt="Mongoose" width="24%" /></a>
+<a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
 <img src="ui-v3/picture-v4.svg" alt="Lamia Kajal" width="100%" />
