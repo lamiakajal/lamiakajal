@@ -11,7 +11,7 @@
 <p align="center">
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="ui-v3/skill-html.svg" alt="HTML" width="24%" /></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="ui-v3/skill-css.svg" alt="CSS" width="24%" /></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="aui-v3/skill-javascript.svg" alt="JavaScript" width="24%" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="ui-v3/skill-javascript.svg" alt="JavaScript" width="24%" /></a>
 <a href="https://www.typescriptlang.org/"><img src="ui-v3/skill-typescript.svg" alt="TypeScript" width="24%" /></a>
 <a href="https://react.dev/"><img src="ui-v3/skill-react.svg" alt="React" width="24%" /></a>
 <a href="https://tailwindcss.com/"><img src="ui-v3/skill-tailwind.svg" alt="Tailwind CSS" width="24%" /></a>
