@@ -269,16 +269,16 @@ def head2(w, h, title):
     )
 
 
-def panel(x, y, w, h, t0=0.2, T=8.0):
+def panel(x, y, w, h, t0=0.2, T=14.0):
     return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{PANEL}" stroke="#222d42">'
             f'<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{t0/T:.4f};{(t0+.5)/T:.4f};1" dur="{T}s" fill="freeze"/></rect>')
 
 
-def fade_g(t, T=8.0):
+def fade_g(t, T=14.0):
     return (f'<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{t/T:.4f};{(t+.5)/T:.4f};1" dur="{T}s" fill="freeze"/>')
 
 
-def donut(cx, cy, R, sw, items, t0, T=8.0):
+def donut(cx, cy, R, sw, items, t0, T=14.0):
     """items = [(name, value, colour)]; every ring segment draws itself once"""
     C = 2 * 3.14159265 * R
     total = sum(v for _, v, _ in items) or 1
@@ -303,10 +303,11 @@ def lang_items(counts, limit=5):
 
 
 def card_dashboard(d):
-    w, h, T = 1000, 650, 8.0
+    w, h, T = 1000, 650, 14.0
     s = [head2(w, h, "GitHub Stats dashboard"),
          f'<text class="t" x="28" y="44" fill="url(#rb)">GitHub Stats</text>',
          f'<text class="sm" x="{w-28}" y="42" text-anchor="end">live from GitHub - updates every day</text>']
+    n0 = len(s)
     # ---- row A left: contributions / streak ring / longest streak
     ax, ay, aw, ah = 28, 62, 472, 214
     s.append(panel(ax, ay, aw, ah, 0.2))
@@ -324,7 +325,7 @@ def card_dashboard(d):
     s.append(f'<g>{fade_g(0.9)}<circle cx="{c2}" cy="{cy}" r="{R}" fill="none" stroke="#1b2438" stroke-width="8"/>'
              f'<circle cx="{c2}" cy="{cy}" r="{R}" fill="none" stroke="url(#pg)" stroke-width="8" stroke-linecap="round" '
              f'stroke-dasharray="{circ:.1f}" stroke-dashoffset="{circ*(1-frac):.1f}" transform="rotate(-90 {c2} {cy})">'
-             f'<animate attributeName="stroke-dashoffset" values="{circ:.1f};{circ:.1f};{circ*(1-frac):.1f}" keyTimes="0;0.15;0.45" dur="{T}s" fill="freeze"/></circle>'
+             f'<animate attributeName="stroke-dashoffset" values="{circ:.1f};{circ:.1f};{circ*(1-frac):.1f}" keyTimes="0;0.07;0.2" dur="{T}s" repeatCount="indefinite"/></circle>'
              f'<g><animateTransform attributeName="transform" type="rotate" from="0 {c2} {cy}" to="360 {c2} {cy}" dur="6s" repeatCount="indefinite"/>'
              f'<circle cx="{c2}" cy="{cy-R}" r="4.5" fill="#ffffff"/></g>'
              f'<path transform="translate({c2},{cy-R-16}) scale(.8)" d="M0,-10 C7,-4 9,3 4,9 C1,12 -5,11 -7,6 C-9,1 -4,-3 0,-10 Z" fill="#ffa657"/>'
@@ -349,8 +350,8 @@ def card_dashboard(d):
         a = 0.9 + i * 0.12
         fill = "#ffffff" if i == peak else "url(#bar)"
         s.append(f'<rect x="{x}" y="{base-hh:.1f}" width="{bwid}" height="{hh:.1f}" rx="6" fill="{fill}">'
-                 f'<animate attributeName="height" values="0;0;{hh:.1f}" keyTimes="0;{a/T:.4f};{(a+.7)/T:.4f}" dur="{T}s" fill="freeze"/>'
-                 f'<animate attributeName="y" values="{base};{base};{base-hh:.1f}" keyTimes="0;{a/T:.4f};{(a+.7)/T:.4f}" dur="{T}s" fill="freeze"/>'
+                 f'<animate attributeName="height" values="0;0;{hh:.1f}" keyTimes="0;{a/T:.4f};{(a+.7)/T:.4f}" dur="{T}s" repeatCount="indefinite"/>'
+                 f'<animate attributeName="y" values="{base};{base};{base-hh:.1f}" keyTimes="0;{a/T:.4f};{(a+.7)/T:.4f}" dur="{T}s" repeatCount="indefinite"/>'
                  f'<animate attributeName="opacity" values="1;.55;1" dur="3s" begin="{3.2+i*0.3:.1f}s" repeatCount="indefinite"/></rect>')
         s.append(f'<g>{fade_g(a+0.6)}<text class="num" x="{x+bwid/2}" y="{base-hh-8:.1f}" text-anchor="middle" fill="#e6edf3">{wd[i] if d["weekday"] else "-"}</text>'
                  f'<text class="sm" x="{x+bwid/2}" y="{base+20}" text-anchor="middle">{names[i]}</text></g>')
@@ -385,7 +386,8 @@ def card_dashboard(d):
                  f'<circle cx="{x+26}" cy="{y+26}" r="6" fill="{col}"><animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/></circle>'
                  f'<text class="lb" x="{x+44}" y="{y+31}">{label}</text>'
                  f'<text class="num" x="{x+ww-24}" y="{y+32}" text-anchor="end" fill="{col}" style="font-size:20px">{fmt(val)}</text></g>')
-    s.append("</svg>")
+    body = s[n0:]
+    s = s[:n0] + [f'<g><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.9;0.97;1" dur="{T}s" repeatCount="indefinite"/>' + "".join(body) + "</g>", "</svg>"]
     return "".join(s)
 
 
@@ -407,10 +409,11 @@ def level(c, mx):
 
 
 def card_activity(d):
-    w, h, T = 1000, 330, 10.0
-    s = [head2(w, h, "Coding activity"), '<text class="t" x="28" y="44" fill="url(#rb)">Coding Activity</text>',
+    w, h, T = 1000, 424, 18.0
+    s = [head2(w, h, "Coding activity"), '<text class="t" x="28" y="44" fill="url(#rb)">Spent My Time</text>',
          f'<text class="sm" x="{w-28}" y="42" text-anchor="end">last 26 weeks - every square is a day</text>']
-    # ---- mini laptop with code that types itself once
+    n0 = len(s)
+    # ---- mini laptop with code that types itself (replays every cycle)
     lx, ly, lw, lh = 28, 66, 330, 196
     s.append(f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" rx="12" fill="#0b1220" stroke="#2a3552" stroke-width="2"/>')
     s.append(f'<rect x="{lx-14}" y="{ly+lh+2}" width="{lw+28}" height="12" rx="6" fill="#1b2438"/>')
@@ -425,7 +428,7 @@ def card_activity(d):
         widths = [0.0, 0.0] + [(k + 1) * cw for k in range(total)]
         times = [0.0, t] + [t + (k + 1) * 0.045 for k in range(total)]
         defs.append(f'<clipPath id="k{i}"><rect x="{lx+16}" y="{yy-16}" width="{total*cw:.1f}" height="22">'
-                    f'<animate attributeName="width" values="{";".join(f"{v:.1f}" for v in widths)}" keyTimes="{";".join(f"{x/T:.4f}" for x in times)}" calcMode="discrete" dur="{T}s" fill="freeze"/></rect></clipPath>')
+                    f'<animate attributeName="width" values="{";".join(f"{v:.1f}" for v in widths)}" keyTimes="{";".join(f"{x/T:.4f}" for x in times)}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/></rect></clipPath>')
         x = lx + 16; g = [f'<g clip-path="url(#k{i})">']
         for txt, col in segs:
             core = txt.strip(" ")
@@ -440,10 +443,10 @@ def card_activity(d):
         t += total * 0.045 + 0.25
     kt = [0.0] + [c[0] for c in cur]
     kt = [max(kt[:i + 1]) for i in range(len(kt))]
-    s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;{cur[0][0]/T:.4f};1" calcMode="discrete" dur="{T}s" fill="freeze"/>'
+    s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;{cur[0][0]/T:.4f};1" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/>'
              f'<rect width="7" height="16" fill="#7ee787" x="{cur[0][1]:.1f}" y="{cur[0][2]:.1f}">'
-             f'<animate attributeName="x" values="{";".join(f"{c[1]:.1f}" for c in [cur[0]] + cur)}" keyTimes="{";".join(f"{x/T:.4f}" for x in kt)}" calcMode="discrete" dur="{T}s" fill="freeze"/>'
-             f'<animate attributeName="y" values="{";".join(f"{c[2]:.1f}" for c in [cur[0]] + cur)}" keyTimes="{";".join(f"{x/T:.4f}" for x in kt)}" calcMode="discrete" dur="{T}s" fill="freeze"/>'
+             f'<animate attributeName="x" values="{";".join(f"{c[1]:.1f}" for c in [cur[0]] + cur)}" keyTimes="{";".join(f"{x/T:.4f}" for x in kt)}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/>'
+             f'<animate attributeName="y" values="{";".join(f"{c[2]:.1f}" for c in [cur[0]] + cur)}" keyTimes="{";".join(f"{x/T:.4f}" for x in kt)}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values="1;0;1" dur=".9s" repeatCount="indefinite"/></rect></g>')
     # ---- heatmap
     weeks = d["weeks"] or [[None] * 7 for _ in range(26)]
@@ -459,7 +462,7 @@ def card_activity(d):
             if lv >= 2:                                           # active days twinkle forever, each at its own time
                 extra = f'<animate attributeName="opacity" values="1;.45;1" dur="{2.2+(ci*7+ri)%5*0.4:.1f}s" begin="{4+(ci*3+ri)%7*0.5:.1f}s" repeatCount="indefinite"/>'
             s.append(f'<rect x="{x}" y="{y}" width="{cs}" height="{cs}" rx="4" fill="{LEVELS[lv]}">'
-                     f'<animate attributeName="opacity" values="0;0;1" keyTimes="0;{a/T:.4f};{(a+.3)/T:.4f}" dur="{T}s" fill="freeze"/>{extra}</rect>')
+                     f'<animate attributeName="opacity" values="0;0;1" keyTimes="0;{a/T:.4f};{(a+.3)/T:.4f}" dur="{T}s" repeatCount="indefinite"/>{extra}</rect>')
     # ---- legend + small facts
     ly2 = gy + 7 * (cs + gap) + 12
     s.append(f'<text class="sm" x="{gx}" y="{ly2+10}">Less</text>')
@@ -475,6 +478,25 @@ def card_activity(d):
         x = 396 + i * 196
         s.append(f'<g>{fade_g(3.0+i*0.3, T)}<text class="num" x="{x}" y="{ly2+52}" fill="{col}" style="font-size:24px">{fmt(val)}</text>'
                  f'<text class="sm" x="{x}" y="{ly2+70}">{lab}</text></g>')
+    # ---- code by language: three bars that fill up
+    tl = sum(d["langs"].values()) or 1
+    top3 = sorted(d["langs"].items(), key=lambda kv: -kv[1])[:3] if not PLACEHOLDER else []
+    by = 336
+    s.append(f'<g>{fade_g(7.5, T)}<text class="pt" x="28" y="{by}">Where my code goes</text></g>')
+    for i in range(3):
+        x = 28 + i * 324; wbar = 296; y = by + 28
+        if i < len(top3):
+            name, val = top3[i]; pct = 100 * val / tl; col = LANG_COLORS.get(name, FALLBACK[i % len(FALLBACK)])
+            fillw = max(6.0, wbar * pct / 100); a0 = 7.8 + i * 0.4
+            s.append(f'<g>{fade_g(a0, T)}<text class="lb" x="{x}" y="{y}">{escape(name)}</text>'
+                     f'<text class="num" x="{x+wbar}" y="{y}" text-anchor="end" fill="{col}">{pct:.1f}%</text>'
+                     f'<rect x="{x}" y="{y+10}" width="{wbar}" height="12" rx="6" fill="#1b2438"/>'
+                     f'<rect x="{x}" y="{y+10}" width="{fillw:.1f}" height="12" rx="6" fill="{col}">'
+                     f'<animate attributeName="width" values="0;0;{fillw:.1f}" keyTimes="0;{(a0+.2)/T:.4f};{(a0+1.2)/T:.4f}" dur="{T}s" repeatCount="indefinite"/></rect></g>')
+        else:
+            s.append(f'<g>{fade_g(7.8, T)}<rect x="{x}" y="{y+10}" width="{wbar}" height="12" rx="6" fill="#1b2438"/></g>')
+    body = s[n0:]
+    s = s[:n0] + [f'<g><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.92;0.97;1" dur="{T}s" repeatCount="indefinite"/>' + "".join(body) + "</g>"]
     s.insert(1, "<defs>" + "".join(defs) + "</defs>")
     s.append("</svg>")
     return "".join(s)
