@@ -40,19 +40,19 @@
 <img src="ui-v3/heading-social.svg" alt="Find Me Online" width="100%" />
 
 <p align="center">
-<a href="https://lamiakajal.com"><img src="assets/social-website.svg" alt="Website" width="32%" /></a>
-<a href="mailto:lamiakajal@gmail.com"><img src="assets/social-gmail.svg" alt="Gmail" width="32%" /></a>
-<a href="https://www.linkedin.com/in/lamiakajal"><img src="assets/social-linkedin.svg" alt="LinkedIn" width="32%" /></a>
-<a href="https://www.github.com/lamiakajal"><img src="assets/social-github.svg" alt="GitHub" width="32%" /></a>
-<a href="https://www.youtube.com/@lamiakajal"><img src="assets/social-youtube.svg" alt="YouTube" width="32%" /></a>
-<a href="https://x.com/lamiakajal"><img src="assets/social-x.svg" alt="X" width="32%" /></a>
-<a href="https://www.instagram.com/lamiakajal"><img src="assets/social-instagram.svg" alt="Instagram" width="32%" /></a>
-<a href="https://www.facebook.com/lamiakajal"><img src="assets/social-facebook.svg" alt="Facebook" width="32%" /></a>
-<a href="https://www.facebook.com/lamiakajalofficial"><img src="assets/social-facebook-page.svg" alt="Facebook Page" width="32%" /></a>
-<a href="https://medium.com/@lamiakajal"><img src="assets/social-medium.svg" alt="Medium" width="32%" /></a>
-<a href="https://lamiakajal.blogspot.com"><img src="assets/social-blogger.svg" alt="Blogger" width="32%" /></a>
-<a href="https://www.behance.net/lamiakajal"><img src="assets/social-behance.svg" alt="Behance" width="32%" /></a>
-<a href="https://www.pinterest.com/lamiakajal"><img src="assets/social-pinterest.svg" alt="Pinterest" width="32%" /></a>
+<a href="https://lamiakajal.com"><img src="ui-v3/social-website.svg" alt="Website" width="32%" /></a>
+<a href="mailto:lamiakajal@gmail.com"><img src="ui-v3/social-gmail.svg" alt="Gmail" width="32%" /></a>
+<a href="https://www.linkedin.com/in/lamiakajal"><img src="ui-v3/social-linkedin.svg" alt="LinkedIn" width="32%" /></a>
+<a href="https://www.github.com/lamiakajal"><img src="ui-v3/social-github.svg" alt="GitHub" width="32%" /></a>
+<a href="https://www.youtube.com/@lamiakajal"><img src="ui-v3/social-youtube.svg" alt="YouTube" width="32%" /></a>
+<a href="https://x.com/lamiakajal"><img src="ui-v3/social-x.svg" alt="X" width="32%" /></a>
+<a href="https://www.instagram.com/lamiakajal"><img src="ui-v3/social-instagram.svg" alt="Instagram" width="32%" /></a>
+<a href="https://www.facebook.com/lamiakajal"><img src="ui-v3/social-facebook.svg" alt="Facebook" width="32%" /></a>
+<a href="https://www.facebook.com/lamiakajalofficial"><img src="ui-v3/social-facebook-page.svg" alt="Facebook Page" width="32%" /></a>
+<a href="https://medium.com/@lamiakajal"><img src="ui-v3/social-medium.svg" alt="Medium" width="32%" /></a>
+<a href="https://lamiakajal.blogspot.com"><img src="ui-v3/social-blogger.svg" alt="Blogger" width="32%" /></a>
+<a href="https://www.behance.net/lamiakajal"><img src="ui-v3/social-behance.svg" alt="Behance" width="32%" /></a>
+<a href="https://www.pinterest.com/lamiakajal"><img src="ui-v3/social-pinterest.svg" alt="Pinterest" width="32%" /></a>
 </p>
 
 <img src="ui-v3/heading-stats.svg" alt="GitHub Stats" width="100%" />
