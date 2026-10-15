@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="ui-v3/header-v2.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
+<img src="ui-v3/header-v4.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
 
 <img src="ui-v3/heading-about.svg" alt="About Me" width="100%" />
 
-<img src="ui-v3/about.svg" alt="About Lamia Kajal" width="100%" />
+<img src="ui-v3/about-v2.svg" alt="About Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-skills.svg" alt="Skills" width="100%" />
 
@@ -23,7 +23,7 @@
 <a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
-<img src="ui-v3/picture-v2.svg" alt="Lamia Kajal" width="100%" />
+<img src="ui-v3/picture-v4.svg" alt="Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-featured.svg" alt="Featured Projects" width="100%" />
 
@@ -61,7 +61,9 @@
 
 <img src="stats/github-dashboard.svg" alt="GitHub stats dashboard" width="100%" />
 
-<img src="stats/github-activity.svg" alt="Coding activity" width="100%" />
+<img src="ui-v3/heading-time.svg" alt="Spent My Time" width="100%" />
+
+<img src="stats/github-activity.svg" alt="Spent my time - coding activity" width="100%" />
 
 <img src="ui-v3/heading-snake.svg" alt="Contribution Snake" width="100%" />
 
@@ -79,6 +81,9 @@
 <img src="ui-v3/service-database.svg" alt="Databases" width="48%" />
 <img src="ui-v3/service-auth.svg" alt="Authentication" width="48%" />
 </p>
+
+<!-- CERTS:START -->
+<!-- CERTS:END -->
 
 <img src="ui-v3/heading-blog.svg" alt="Latest Blog Posts" width="100%" />
 
