@@ -9,6 +9,7 @@ on:
       - "certificates.json"
       - ".github/scripts/generate_certs.py"
       - ".github/workflows/certs.yml"
+      - "certificates/**"
 
 permissions:
   contents: write
@@ -27,6 +28,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install Pillow (makes the small certificate previews)
+        run: pip install pillow
 
       - name: Generate certificate cards
         run: python .github/scripts/generate_certs.py
