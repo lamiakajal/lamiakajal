@@ -1,10 +1,12 @@
 <div align="center">
 
-<img src="ui-v3/header-v4.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
+<img src="ui-v3/header-v5.svg" alt="Lamia Kajal — Full Stack Web Developer" width="100%" />
+
+<img src="ui-v3/mascot-hello.svg" alt="Hello from the coding cat" width="100%" />
 
 <img src="ui-v3/heading-about.svg" alt="About Me" width="100%" />
 
-<img src="ui-v3/about-v2.svg" alt="About Lamia Kajal" width="100%" />
+<img src="ui-v3/about-v5.svg" alt="About Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-skills.svg" alt="Skills" width="100%" />
 
@@ -23,7 +25,9 @@
 <a href="https://git-scm.com/"><img src="ui-v3/skill-git-github.svg" alt="Git & GitHub" width="24%" /></a>
 </p>
 
-<img src="ui-v3/picture-v4.svg" alt="Lamia Kajal" width="100%" />
+<img src="ui-v3/mascot-code.svg" alt="Coding cat" width="100%" />
+
+<img src="ui-v3/picture-v5.svg" alt="Lamia Kajal" width="100%" />
 
 <img src="ui-v3/heading-featured.svg" alt="Featured Projects" width="100%" />
 
@@ -57,6 +61,8 @@
 <a href="https://www.binance.com/en/square/profile/lamiakajal"><img src="ui-v3/social-binance.svg" alt="Binance" width="32%" /></a>
 </p>
 
+<img src="ui-v3/mascot-walk.svg" alt="Walking cat" width="100%" />
+
 <img src="ui-v3/heading-stats.svg" alt="GitHub Stats" width="100%" />
 
 <img src="stats/github-dashboard.svg" alt="GitHub stats dashboard" width="100%" />
@@ -83,6 +89,14 @@
 </p>
 
 <!-- CERTS:START -->
+<img src="ui-v3/heading-certs.svg" alt="Certifications" width="100%" />
+
+<p align="center">
+<a href="https://github.com/lamiakajal/lamiakajal/blob/main/certificates/codemanbd-full-stack-web-development.jpg"><img src="ui-v3/cert-1.svg" alt="Full Stack &amp; Web Development" width="48%" /></a>
+<a href="https://github.com/lamiakajal/lamiakajal/blob/main/certificates/codemanbd-wordpress-ecommerce.jpg"><img src="ui-v3/cert-2.svg" alt="WordPress &amp; eCommerce" width="48%" /></a>
+<a href="https://github.com/lamiakajal/lamiakajal/blob/main/certificates/shikhbe-shobai-ui-ux-design.jpg"><img src="ui-v3/cert-3.svg" alt="UI/UX Design" width="48%" /></a>
+<a href="https://github.com/lamiakajal/lamiakajal/blob/main/certificates/shikhbe-shobai-graphic-ui-design.jpg"><img src="ui-v3/cert-4.svg" alt="Graphic and UI Design" width="48%" /></a>
+</p>
 <!-- CERTS:END -->
 
 <img src="ui-v3/heading-blog.svg" alt="Latest Blog Posts" width="100%" />
@@ -96,6 +110,8 @@
 </p>
 <!-- BLOG:END -->
 
+<img src="ui-v3/mascot-walk.svg" alt="Walking cat" width="100%" />
+
 <img src="ui-v3/heading-work.svg" alt="Let's Work Together" width="100%" />
 
 <img src="ui-v3/cta-card.svg" alt="Let's work together" width="100%" />
@@ -105,6 +121,8 @@
 <a href="https://wa.me/lamiakajal"><img src="ui-v3/social-whatsapp.svg" alt="WhatsApp" width="32%" /></a>
 <a href="https://www.linkedin.com/in/lamiakajal"><img src="ui-v3/social-linkedin.svg" alt="LinkedIn" width="32%" /></a>
 </p>
+
+<img src="ui-v3/mascot-thanks.svg" alt="Thank you from the coding cat" width="100%" />
 
 <img src="ui-v3/footer-waves.svg" alt="Thanks for visiting my profile" width="100%" />
 

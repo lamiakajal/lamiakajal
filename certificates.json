@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "title": "Full Stack & Web Development",
+    "issuer": "CodemanBD",
+    "year": "2025",
+    "note": "Course 309 - Achievement",
+    "image": "certificates/codemanbd-full-stack-web-development.jpg",
+    "url": "https://github.com/lamiakajal/lamiakajal/blob/main/certificates/codemanbd-full-stack-web-development.jpg",
+    "color": "#ffa657"
+  },
+  {
+    "title": "WordPress & eCommerce",
+    "issuer": "CodemanBD",
+    "year": "2025",
+    "note": "Course 318 - Achievement",
+    "image": "certificates/codemanbd-wordpress-ecommerce.jpg",
+    "url": "https://github.com/lamiakajal/lamiakajal/blob/main/certificates/codemanbd-wordpress-ecommerce.jpg",
+    "color": "#ff7bb0"
+  },
+  {
+    "title": "UI/UX Design",
+    "issuer": "Shikhbe Shobai",
+    "year": "2024",
+    "note": "Batch SSB-599 - Completion",
+    "image": "certificates/shikhbe-shobai-ui-ux-design.jpg",
+    "url": "https://github.com/lamiakajal/lamiakajal/blob/main/certificates/shikhbe-shobai-ui-ux-design.jpg",
+    "color": "#39d0d8"
+  },
+  {
+    "title": "Graphic and UI Design",
+    "issuer": "Shikhbe Shobai",
+    "year": "2023",
+    "note": "Batch SSB-551 - Completion",
+    "image": "certificates/shikhbe-shobai-graphic-ui-design.jpg",
+    "url": "https://github.com/lamiakajal/lamiakajal/blob/main/certificates/shikhbe-shobai-graphic-ui-design.jpg",
+    "color": "#7ee787"
+  }
+]
