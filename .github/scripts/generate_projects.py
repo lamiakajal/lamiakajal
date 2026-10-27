@@ -29,6 +29,80 @@ WRAP = 44                       # characters per description line
 MAX_LINES = 4
 
 
+# ---- shared card effects (embedded in the generator scripts) -------------------------------------------
+import random as _random
+import re as _re
+import zlib as _zlib
+
+
+def fx_stars(svg, seed=None, aurora=False):
+    """twinkling sparkle background (+ optional soft aurora) inside a full-width dark card; idempotent"""
+    if "fxbl" in svg:
+        return svg
+    m = _re.search(r'<rect x="\.5" y="\.5" width="([\d.]+)" height="([\d.]+)" rx="(\d+)" fill="#0d1117"[^>]*/>', svg)
+    if not m:
+        return svg
+    w, h, rx = float(m.group(1)) + 1, float(m.group(2)) + 1, m.group(3)
+    rnd = _random.Random(seed if seed is not None else _zlib.crc32(svg[:400].encode()))
+    n = max(10, min(40, int(w * h / 9500)))
+    pal = ["#ffffff", "#ffffff", "#bcd4ff", "#ffd9ec", "#d6ffe1", "#fff3b0", "#d9c8ff"]
+    defs = (f'<filter id="fxbl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>'
+            f'<clipPath id="fxcard"><rect x="1" y="1" width="{w-2:.1f}" height="{h-2:.1f}" rx="{rx}"/></clipPath>'
+            '<linearGradient id="fxshoot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".95"/></linearGradient>')
+    g = ['<g clip-path="url(#fxcard)">']
+    if aurora:
+        for i, col in enumerate(("#58a6ff", "#bc8cff", "#ff7bb0")):
+            cx, cy = rnd.uniform(0.15, 0.85) * w, rnd.uniform(0.2, 0.8) * h
+            r = rnd.uniform(0.16, 0.26) * w
+            g.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}" fill="{col}" opacity=".13" filter="url(#fxbl)">'
+                     f'<animateTransform attributeName="transform" type="translate" values="0 0;{rnd.randint(-90,90)} {rnd.randint(-40,40)};0 0" dur="{rnd.uniform(14,22):.1f}s" repeatCount="indefinite"/>'
+                     f'<animate attributeName="opacity" values=".08;.2;.08" dur="{rnd.uniform(7,11):.1f}s" repeatCount="indefinite"/></circle>')
+    for i in range(n):
+        x, y = rnd.uniform(14, w - 14), rnd.uniform(10, h - 10)
+        col = rnd.choice(pal); dur = rnd.uniform(1.8, 4.6); beg = rnd.uniform(0, 4)
+        if rnd.random() < 0.38:                                    # four-point sparkle
+            r = rnd.choice([3.2, 4.2, 5.4, 6.8]); k = 0.28
+            d = f"M0,{-r} L{r*k:.2f},{-r*k:.2f} L{r},0 L{r*k:.2f},{r*k:.2f} L0,{r} L{-r*k:.2f},{r*k:.2f} L{-r},0 L{-r*k:.2f},{-r*k:.2f} Z"
+            g.append(f'<g transform="translate({x:.0f},{y:.0f})"><path d="{d}" fill="{col}" opacity=".2">'
+                     f'<animate attributeName="opacity" values=".12;.95;.12" dur="{dur:.1f}s" begin="{beg:.1f}s" repeatCount="indefinite"/>'
+                     f'<animateTransform attributeName="transform" type="scale" values=".5;1.15;.5" dur="{dur:.1f}s" begin="{beg:.1f}s" repeatCount="indefinite"/></path></g>')
+        else:
+            g.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.choice([1.1, 1.5, 2.0])}" fill="{col}" opacity=".2">'
+                     f'<animate attributeName="opacity" values=".1;.9;.1" dur="{dur:.1f}s" begin="{beg:.1f}s" repeatCount="indefinite"/></circle>')
+    for i in range(2):                                              # rare shooting stars
+        sx, sy = rnd.uniform(0.1, 0.7) * w, rnd.uniform(0.05, 0.5) * h; D = rnd.uniform(9, 15)
+        g.append(f'<g transform="translate({sx:.0f},{sy:.0f}) rotate(24)"><rect x="-46" y="-1" width="46" height="2" rx="1" fill="url(#fxshoot)" opacity="0">'
+                 f'<animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.02;0.09;1" dur="{D:.1f}s" begin="{rnd.uniform(1, 8):.1f}s" repeatCount="indefinite"/>'
+                 f'<animateTransform attributeName="transform" type="translate" values="0 0;170 0;170 0" keyTimes="0;0.09;1" dur="{D:.1f}s" begin="{rnd.uniform(1, 8):.1f}s" repeatCount="indefinite"/></rect></g>')
+    g.append("</g>")
+    svg = svg.replace(m.group(0), m.group(0) + "".join(g), 1)
+    return svg.replace("</defs>", defs + "</defs>", 1) if "</defs>" in svg else svg
+
+
+def fx_button(svg, delay=None):
+    """card/button effect: gentle float (never overlaps neighbours) + breathing glow + light sweep"""
+    if 'id="fxg"' in svg:
+        return svg
+    m = _re.search(r'<rect x="1" y="1" width="([\d.]+)" height="([\d.]+)" rx="(\d+)" fill="#161b22" stroke="(#[0-9a-fA-F]{3,8})" stroke-opacity="[.\d]+"/>', svg)
+    svg = _re.sub(r'\.pulse\{animation:pulse[^}]*\}\s*@keyframes pulse\{\s*0%,100%\{[^}]*\}\s*50%\{[^}]*\}\s*\}',
+                  '.pulse{animation:fxfloat 3.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
+                  '@keyframes fxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}', svg)
+    if not m:
+        return svg
+    w, h, rx, col = m.group(1), m.group(2), m.group(3), m.group(4)
+    d = (_zlib.crc32(svg[:300].encode()) % 400) / 100 if delay is None else delay
+    defs = ('<filter id="fxg" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="3.2"/></filter>'
+            f'<clipPath id="fxcl"><rect x="1" y="1" width="{w}" height="{h}" rx="{rx}"/></clipPath>'
+            '<linearGradient id="fxs" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+            '<stop offset=".5" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>')
+    glow = (f'<rect x="1" y="1" width="{w}" height="{h}" rx="{rx}" fill="none" stroke="{col}" stroke-width="3" filter="url(#fxg)" opacity=".15">'
+            f'<animate attributeName="opacity" values=".1;.5;.1" dur="3.8s" begin="{d:.2f}s" repeatCount="indefinite"/></rect>')
+    sweep = (f'<rect x="-80" y="1" width="46" height="{h}" fill="url(#fxs)" clip-path="url(#fxcl)" transform="skewX(-18)">'
+             f'<animate attributeName="x" values="-80;-80;{float(w)+60:.0f};{float(w)+60:.0f}" keyTimes="0;0.15;0.4;1" dur="7s" begin="{d:.2f}s" repeatCount="indefinite"/></rect>')
+    svg = svg.replace(m.group(0), glow + m.group(0) + sweep, 1)
+    return svg.replace("</defs>", defs + "</defs>", 1) if "</defs>" in svg else svg
+
+
 def slugify(name):
     s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
     return s or "project"
@@ -234,7 +308,7 @@ def main():
         fname = f"project-{slug}.svg"
         keep.add(fname)
         with open(os.path.join(CARD_DIR, fname), "w", encoding="utf-8") as f:
-            f.write(card_svg(i, p))
+            f.write(fx_button(card_svg(i, p)))
         link = p.get("demo") or p.get("url") or "#"
         items.append(f'<a href="{escape(link, quote=True)}"><img src="{CARD_DIR}/{fname}" alt="{escape(p["name"], quote=True)}" width="48%" /></a>')
     for fn in os.listdir(CARD_DIR):                         # remove cards of projects that are no longer featured
