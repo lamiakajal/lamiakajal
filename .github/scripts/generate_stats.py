@@ -261,7 +261,7 @@ def fx_stars(svg, seed=None, aurora=False):
     w, h, rx = float(m.group(1)) + 1, float(m.group(2)) + 1, m.group(3)
     rnd = _random.Random(seed if seed is not None else _zlib.crc32(svg[:400].encode()))
     n = max(10, min(40, int(w * h / 9500)))
-    pal = ["#ffffff", "#ffffff", "#bcd4ff", "#ffd9ec", "#d6ffe1", "#fff3b0", "#d9c8ff"]
+    pal = ["#ffffff"]
     defs = (f'<filter id="fxbl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>'
             f'<clipPath id="fxcard"><rect x="1" y="1" width="{w-2:.1f}" height="{h-2:.1f}" rx="{rx}"/></clipPath>'
             '<linearGradient id="fxshoot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".95"/></linearGradient>')
@@ -322,7 +322,7 @@ def fx_button(svg, delay=None):
 # ----------------------------------------------------------------------------- dashboard + spent-my-time cards
 PANEL = '#111826'
 NB = "&#160;"
-CYC = 12.0            # charts and texts replay every 12 s - the card itself never disappears
+CYC = 9.0             # every panel replays every 9 s, each on its own turn - the card never goes blank
 
 
 def head2(w, h, title):
@@ -349,43 +349,49 @@ def _kts(xs):
 
 
 class Card:
-    """small helper: every text types itself in, every chart fills itself, then everything resets and plays again"""
+    """texts type in, charts fill, then each PANEL resets on its own turn (phase), so the card never goes blank"""
 
-    def __init__(self, T):
-        self.T, self.defs, self.n = T, [], 0
+    def __init__(self, T, speed=0.45):
+        self.T, self.defs, self.n, self.phase, self.speed = T, [], 0, 0.0, speed
+
+    def _b(self):
+        return f' begin="-{self.phase:.2f}s"' if self.phase else ""
 
     def text(self, txt, x, y, size, fill, t0, anchor="start", weight="bold", dt=0.04):
         txt = str(txt)
         if not txt.strip():
             return ""
         T, n = self.T, len(txt)
+        t0, dt = t0 * self.speed, dt * self.speed
         cw = size * 0.6
         wd = n * cw
         x0 = x - wd / 2 if anchor == "middle" else (x - wd if anchor == "end" else x)
-        end = T - 0.5
+        end = T - 0.3
         if t0 + n * dt > end - 0.1:
-            dt = max(0.008, (end - 0.1 - t0) / n)
+            dt = max(0.006, (end - 0.1 - t0) / n)
         widths = [0.0] + [(k + 1) * cw for k in range(n)] + [0.0]
         times = [0.0] + [t0 + (k + 1) * dt for k in range(n)] + [end]
         self.n += 1
         cid = f"k{self.n}"
         self.defs.append(f'<clipPath id="{cid}"><rect x="{x0:.1f}" y="{y - size:.1f}" width="{wd:.1f}" height="{size * 1.5:.1f}">'
                          f'<animate attributeName="width" values="{";".join(f"{v:.1f}" for v in widths)}" keyTimes="{_kts([t / T for t in times])}" '
-                         f'calcMode="discrete" dur="{T}s" repeatCount="indefinite"/></rect></clipPath>')
+                         f'calcMode="discrete" dur="{T}s"{self._b()} repeatCount="indefinite"/></rect></clipPath>')
         body = "".join(NB if c == " " else escape(c) for c in txt)
         return (f'<g clip-path="url(#{cid})"><text x="{x0:.1f}" y="{y:.1f}" font-size="{size}" font-weight="{weight}" fill="{fill}" '
                 f'textLength="{wd:.1f}" lengthAdjust="spacing">{body}</text></g>')
 
-    def life(self, attr, a, b, v0, v1, tail=1.4):
-        """value goes v0 -> v1 between a and b, holds, then returns to v0 before the cycle restarts"""
+    def life(self, attr, a, b, v0, v1, tail=0.8):
+        """value goes v0 -> v1 quickly, holds for a long time, snaps back just before the panel plays again"""
         T = self.T
+        a, b = a * self.speed, b * self.speed
         return (f'<animate attributeName="{attr}" values="{v0};{v0};{v1};{v1};{v0};{v0}" '
-                f'keyTimes="{_kts([0, a / T, b / T, (T - tail) / T, (T - 0.5) / T, 1])}" dur="{T}s" repeatCount="indefinite"/>')
+                f'keyTimes="{_kts([0, a / T, b / T, (T - tail) / T, (T - 0.3) / T, 1])}" dur="{T}s"{self._b()} repeatCount="indefinite"/>')
 
     def pop(self, a):
         T = self.T
-        return (f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{_kts([0, a / T, (a + .3) / T, (T - 1.4) / T, (T - 0.5) / T, 1])}" '
-                f'dur="{T}s" repeatCount="indefinite"/>')
+        a = a * self.speed
+        return (f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{_kts([0, a / T, (a + .2) / T, (T - 0.8) / T, (T - 0.3) / T, 1])}" '
+                f'dur="{T}s"{self._b()} repeatCount="indefinite"/>')
 
     def defs_block(self):
         return "<defs>" + "".join(self.defs) + "</defs>"
@@ -434,6 +440,7 @@ def card_dashboard(d):
     s.append(K.text(fmt(longest[0]), c3, cy + 8, 40, "#bc8cff", 0.7, "middle"))
     s.append(K.text("Longest Streak", c3, cy + 44, 14, "#c9d1d9", 1.2, "middle", "normal"))
     s.append(K.text(fmt_range(longest[1], longest[2]), c3, cy + 62, 11, "#8b949e", 1.6, "middle", "normal"))
+    K.phase = 2.2
     # ---- row A right: contributions by weekday (bars rise from the bottom, then drop and rise again)
     bx, by, bw, bh = 516, 62, 456, 214
     s.append(panel(bx, by, bw, bh))
@@ -459,6 +466,7 @@ def card_dashboard(d):
     for k, (px, pw, title, counts, unit) in enumerate([(28, 472, "Top Languages by Repository", d["repo_langs"], "repos"),
                                                        (516, 456, "Top Languages by Code Size", d["langs"], "code")]):
         py, ph = 292, 262
+        K.phase = 4.4 + k * 2.2
         s.append(panel(px, py, pw, ph))
         s.append(K.text(title, px + 24, py + 34, 14, "#e6edf3", 0.5 + k * 0.2))
         items = lang_items(counts) if not PLACEHOLDER else []
@@ -487,6 +495,7 @@ def card_dashboard(d):
             s.append(K.text(f"{100 * val / tot:.1f}%", px + pw - 26, ly, 14, col, t + 0.3, "end"))
         if not items:
             s.append(K.text("Loading... (updates automatically)", px + 212, py + 110, 14, "#c9d1d9", 0.8, "start", "normal"))
+    K.phase = 3.3
     # ---- row C: small totals
     for i, (label, val, col) in enumerate([("Public Repos", d["repos"], "#58a6ff"), ("Total Stars", d["stars"], "#f2cc60"), ("Followers", d["followers"], "#7ee787")]):
         x, y, ww = 28 + i * 324, 570, 296
@@ -515,7 +524,7 @@ def level(c, mx):
 
 
 def card_activity(d):
-    w, h, T = 1000, 424, 16.0
+    w, h, T = 1000, 424, 10.0
     K = Card(T)
     s = [head2(w, h, "Spent my time"), '<text class="t" x="28" y="44" fill="url(#rb)">Spent My Time</text>',
          f'<text class="sm" x="{w-28}" y="42" text-anchor="end">last 26 weeks - every square is a day</text>']
@@ -532,7 +541,7 @@ def card_activity(d):
         total = sum(len(x) for x, _ in segs)
         yy = ly + 52 + i * 22
         widths = [0.0] + [(k + 1) * cw for k in range(total)] + [0.0]
-        times = [0.0] + [t + (k + 1) * 0.045 for k in range(total)] + [T - 0.5]
+        times = [0.0] + [t + (k + 1) * 0.02 for k in range(total)] + [T - 0.3]
         K.defs.append(f'<clipPath id="k{i}"><rect x="{lx + 16}" y="{yy - 16}" width="{total * cw:.1f}" height="22">'
                       f'<animate attributeName="width" values="{";".join(f"{v:.1f}" for v in widths)}" keyTimes="{_kts([x / T for x in times])}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/></rect></clipPath>')
         x = lx + 16
@@ -547,8 +556,8 @@ def card_activity(d):
         g.append("</g>")
         s.append("".join(g))
         for k in range(total + 1):
-            cur.append((t + k * 0.045, lx + 16 + k * cw, yy - 13))
-        t += total * 0.045 + 0.25
+            cur.append((t + k * 0.02, lx + 16 + k * cw, yy - 13))
+        t += total * 0.02 + 0.1
     K.n = 50
     ct = [0.0] + [c[0] for c in cur]
     ct = [max(ct[:i + 1]) for i in range(len(ct))]
@@ -559,6 +568,7 @@ def card_activity(d):
              f'<animate attributeName="x" values="{";".join(f"{v:.1f}" for v in xs)}" keyTimes="{_kts([x / T for x in ct])}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/>'
              f'<animate attributeName="y" values="{";".join(f"{v:.1f}" for v in ys)}" keyTimes="{_kts([x / T for x in ct])}" calcMode="discrete" dur="{T}s" repeatCount="indefinite"/>'
              '<animate attributeName="opacity" values="1;0;1" dur=".9s" repeatCount="indefinite"/></rect></g>')
+    K.phase = 3.3
     # ---- heatmap: squares appear one after another like typing, hold, vanish, appear again
     weeks = d["weeks"] or [[None] * 7 for _ in range(26)]
     mx = max([c for wk in weeks for c in wk if c] or [1])
@@ -589,6 +599,7 @@ def card_activity(d):
         x = 396 + i * 196
         s.append(K.text(fmt(val), x, ly2 + 52, 24, col, 4.4 + i * 0.4))
         s.append(K.text(lab, x, ly2 + 70, 11, "#8b949e", 4.8 + i * 0.4, "start", "normal"))
+    K.phase = 6.6
     # ---- code by language: names type in, bars fill from zero, retract, fill again
     tl = sum(d["langs"].values()) or 1
     top3 = sorted(d["langs"].items(), key=lambda kv: -kv[1])[:3] if not PLACEHOLDER else []
