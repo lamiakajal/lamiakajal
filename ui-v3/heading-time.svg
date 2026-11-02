@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="72" viewBox="0 0 1000 72" role="img" aria-label="Spent My Time"><title>Spent My Time</title><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="72" viewBox="0 0 1000 72" role="img" aria-label="Spent My Time"><title>Spent My Time</title><style>svg{animation:fxin .8s ease-out 1.50s both}@keyframes fxin{from{opacity:0}to{opacity:1}}
 text{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;white-space:pre}
 .k{font-size:17px;font-weight:bold}.v{font-size:17px;fill:#e6edf3}.h{font-size:17px;font-weight:bold}
 .a{font-size:4.72px}.a2{font-size:4.8px}.b{font-size:17px}.ty{font-size:24px;font-weight:bold}
