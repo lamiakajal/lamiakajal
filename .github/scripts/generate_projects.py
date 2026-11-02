@@ -44,7 +44,7 @@ def fx_stars(svg, seed=None, aurora=False):
         return svg
     w, h, rx = float(m.group(1)) + 1, float(m.group(2)) + 1, m.group(3)
     rnd = _random.Random(seed if seed is not None else _zlib.crc32(svg[:400].encode()))
-    n = max(10, min(40, int(w * h / 9500)))
+    n = max(8, min(16, int(w * h / 16000)))
     pal = ["#ffffff", "#ffffff", "#bcd4ff", "#ffd9ec", "#d6ffe1", "#fff3b0", "#d9c8ff"]
     defs = (f'<filter id="fxbl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>'
             f'<clipPath id="fxcard"><rect x="1" y="1" width="{w-2:.1f}" height="{h-2:.1f}" rx="{rx}"/></clipPath>'
@@ -85,8 +85,8 @@ def fx_button(svg, delay=None):
         return svg
     m = _re.search(r'<rect x="1" y="1" width="([\d.]+)" height="([\d.]+)" rx="(\d+)" fill="#161b22" stroke="(#[0-9a-fA-F]{3,8})" stroke-opacity="[.\d]+"/>', svg)
     svg = _re.sub(r'\.pulse\{animation:pulse[^}]*\}\s*@keyframes pulse\{\s*0%,100%\{[^}]*\}\s*50%\{[^}]*\}\s*\}',
-                  '.pulse{animation:fxfloat 3.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
-                  '@keyframes fxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}', svg)
+                  '.pulse{animation:fxbreath 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
+                  '@keyframes fxbreath{0%,100%{transform:scale(1)}50%{transform:scale(.945)}}', svg)
     if not m:
         return svg
     w, h, rx, col = m.group(1), m.group(2), m.group(3), m.group(4)
@@ -99,8 +99,17 @@ def fx_button(svg, delay=None):
             f'<animate attributeName="opacity" values=".1;.5;.1" dur="3.8s" begin="{d:.2f}s" repeatCount="indefinite"/></rect>')
     sweep = (f'<rect x="-80" y="1" width="46" height="{h}" fill="url(#fxs)" clip-path="url(#fxcl)" transform="skewX(-18)">'
              f'<animate attributeName="x" values="-80;-80;{float(w)+60:.0f};{float(w)+60:.0f}" keyTimes="0;0.15;0.4;1" dur="7s" begin="{d:.2f}s" repeatCount="indefinite"/></rect>')
-    svg = svg.replace(m.group(0), glow + m.group(0) + sweep, 1)
+    svg = svg.replace(m.group(0), glow + m.group(0), 1)
     return svg.replace("</defs>", defs + "</defs>", 1) if "</defs>" in svg else svg
+
+
+def fx_fade(svg, delay=0.0):
+    """every image fades in softly; the delay follows the page order (top first, bottom last)"""
+    if "fxin" in svg:
+        return svg
+    css = f"svg{{animation:fxin .8s ease-out {delay:.2f}s both}}@keyframes fxin{{from{{opacity:0}}to{{opacity:1}}}}"
+    return svg.replace("<style>", "<style>" + css, 1) if "<style>" in svg else svg
+
 
 
 def slugify(name):
@@ -308,7 +317,7 @@ def main():
         fname = f"project-{slug}.svg"
         keep.add(fname)
         with open(os.path.join(CARD_DIR, fname), "w", encoding="utf-8") as f:
-            f.write(fx_button(card_svg(i, p)))
+            f.write(fx_fade(fx_button(card_svg(i, p)), 0.7 + 0.06 * i))
         link = p.get("demo") or p.get("url") or "#"
         items.append(f'<a href="{escape(link, quote=True)}"><img src="{CARD_DIR}/{fname}" alt="{escape(p["name"], quote=True)}" width="48%" /></a>')
     for fn in os.listdir(CARD_DIR):                         # remove cards of projects that are no longer featured
