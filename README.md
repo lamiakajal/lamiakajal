@@ -30,7 +30,7 @@
 <!-- PROJECTS:START -->
 <p align="center">
 <a href="https://cat-hermione-client.vercel.app"><img src="ui-v3/project-cat-hermione-client.svg" alt="cat-hermione-client" width="48%" /></a>
-<a href="https://fruitjazz.vercel.app"><img src="ui-v3/project-mewazar.svg" alt="mewazar" width="48%" /></a>
+<a href="https://mewazar-lamiakajal.vercel.app"><img src="ui-v3/project-mewazar.svg" alt="mewazar" width="48%" /></a>
 <a href="https://axit-lamiakajal.vercel.app/"><img src="ui-v3/project-axit-landing-page.svg" alt="axit-landing-page" width="48%" /></a>
 <a href="https://lucid-fullstack-landing-page-lamiakajal.vercel.app"><img src="ui-v3/project-lucid-fullstack-landing-page.svg" alt="lucid-fullstack-landing-page" width="48%" /></a>
 <a href="https://fit-log-lamiakajal.vercel.app"><img src="ui-v3/project-fit-log.svg" alt="fit-log" width="48%" /></a>
