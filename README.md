@@ -29,12 +29,12 @@
 
 <!-- PROJECTS:START -->
 <p align="center">
+<a href="https://pizzahub-lamiakajal.vercel.app"><img src="ui-v3/project-pizzahub-client.svg" alt="pizzahub-client" width="48%" /></a>
 <a href="https://mewazar-lamiakajal.vercel.app"><img src="ui-v3/project-mewazar.svg" alt="mewazar" width="48%" /></a>
 <a href="https://github.com/lamiakajal/lumora-health"><img src="ui-v3/project-lumora-health.svg" alt="lumora-health" width="48%" /></a>
 <a href="https://codenest-academy-lamiakajal.vercel.app"><img src="ui-v3/project-codenest-academy.svg" alt="codenest-academy" width="48%" /></a>
 <a href="https://cat-hermione-client.vercel.app"><img src="ui-v3/project-unity-pulse-client.svg" alt="unity-pulse-client" width="48%" /></a>
 <a href="https://axit-lamiakajal.vercel.app/"><img src="ui-v3/project-axit-landing-page.svg" alt="axit-landing-page" width="48%" /></a>
-<a href="https://lucid-fullstack-landing-page-lamiakajal.vercel.app"><img src="ui-v3/project-lucid-fullstack-landing-page.svg" alt="lucid-fullstack-landing-page" width="48%" /></a>
 </p>
 <!-- PROJECTS:END -->
 
